@@ -10,7 +10,7 @@
 
             <div class="col-lg-6">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="{{asset('backend/assets/images/small/img-5.jpg')}}" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{(!empty($adminData->profile_image)) ? url('upload/admin_image/'.$adminData->profile_image):url('upload/nophoto.jpg')}}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">Name : {{ $adminData->name }}</h4>
                         <hr>

@@ -11,7 +11,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{route('store.profile')}}" method="post" enctype="multipart/form-data">
+
+                        @csrf
+
                         <h4 class="card-title">User Edit Profile</h4>
 
                         <div class="row mb-3">
@@ -39,7 +42,7 @@
                          <div class="row mb-3">
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <img class="card-img-top img-fluid" src="{{asset('backend/assets/images/small/img-5.jpg')}}" style="width: 300px" alt="Card image cap" id="showImage">
+                                <img class="card-img-top img-fluid" src="{{(!empty($editData->profile_image)) ? url('upload/admin_image/'.$editData->profile_image):url('upload/nophoto.jpg')}}" style="width: 200px" alt="Card image cap" id="showImage">
                             </div>
                         </div>
 
