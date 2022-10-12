@@ -11,9 +11,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                    <form action="{{route('store.profile')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('update.slider')}}" method="post" enctype="multipart/form-data">
 
                         @csrf
+
+                        <input type="hidden" name="id" value="{{$homeslide->id}}">
 
                         <h4 class="card-title">Home Slider Option</h4>
 
@@ -27,14 +29,14 @@
                          <div class="row mb-3">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Short Title</label>
                             <div class="col-sm-10">
-                                <input class="form-control" name="short_title" type="email" value="{{$homeslide->short_title}}" id="example-text-input">
+                                <input class="form-control" name="short_title" type="text" value="{{$homeslide->short_title}}" id="example-text-input">
                             </div>
                         </div>
 
                          <div class="row mb-3">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Video URL</label>
                             <div class="col-sm-10">
-                                <input class="form-control" name="video_url" type="email" value="{{$homeslide->video_url}}" id="example-text-input">
+                                <input class="form-control" name="video_url" type="text" value="{{$homeslide->video_url}}" id="example-text-input">
                             </div>
                         </div>
 
@@ -49,7 +51,7 @@
                          <div class="row mb-3">
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <img class="card-img-top img-fluid" src="{{(!empty($homeslide->home_slide)) ? url('upload/home_slide/'.$homeslide->home_slide):url('upload/nophoto.jpg')}}" style="width: 200px" alt="Card image cap" id="showImage">
+                                <img class="card-img-top img-fluid" src="{{(!empty($homeslide->home_slide)) ? url($homeslide->home_slide):url('upload/nophoto.jpg')}}" style="width: 200px" alt="Card image cap" id="showImage">
                             </div>
                         </div>
 
